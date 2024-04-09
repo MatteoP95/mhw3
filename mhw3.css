@@ -1,0 +1,496 @@
+/* .carlito-regular {
+    font-family: "Carlito", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .carlito-bold {
+    font-family: "Carlito", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .carlito-regular-italic {
+    font-family: "Carlito", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .carlito-bold-italic {
+    font-family: "Carlito", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  } */
+
+/* official
+ *      Primary A    : #908149; 
+ *      Primary B    : #625832
+ *      Secondary A  : #786B3D
+ *      Secondary B  : #484025
+ *      Light A      : #FFFCF2
+ *      Light B      : #D3C8BA
+ *      Text A       : #D8D4D0
+ *      Text B       : #ECE9E4
+ *      Text C       : #FFFFFF
+*/
+
+/* text
+rgb(51, 51, 51)
+rgb(144, 129, 73)
+rgb(255, 255, 255)
+rgb(85, 85, 85)
+rgb(236, 233, 228)
+rgb(216, 212, 208)
+rgba(51, 51, 51, 0)
+rgb(153, 153, 153)
+rgb(136, 136, 136)
+rgb(255, 230, 140)
+*/
+
+/* background
+rgba(0, 0, 0, 0)
+rgb(38, 38, 36)
+rgb(255, 255, 255)
+rgb(120, 107, 61)
+rgb(144, 129, 73)
+rgba(216, 212, 208, 0)
+rgb(255, 230, 140)
+rgb(255, 252, 242)
+rgba(20, 20, 20, 0.95)
+*/
+
+@media (max-width: 480px){
+    body{
+        margin: 0 0px;
+    } 
+    .linkbar{
+        flex-direction: column;
+    }
+    .sezione_desktop{
+        flex-direction: column;
+        padding: 1% 0;
+    }
+    .sezione_desktop .sezione_sx{
+        margin-top: 5%;
+    }
+    .sezione_desktop .sezione_dx .sezione_dx_bottom .titolo{
+        font-size: 5vw;
+    }
+
+    /* .icona_con_testo i, .sezione_sx i{
+        font-size: 12vw;
+    }
+    
+    .icona_con_testo .collegamento{
+        font-size: 4vw;
+    } */
+    /* ho raddoppiato le dimensioni ma non cambia nulla
+    */
+
+    .titolo{
+        font-size: 3vw;
+    }
+    
+    .sottotitolo{
+        font-size: 2vw;
+    }
+}
+
+
+@media(max-width: 768px) and (min-width:481px){
+    body{
+        margin: 0 10px;
+    }
+}
+
+@media (min-width: 769px) {
+    .button-74 {
+      min-width: 120px;
+      padding: 0 25px;
+    }
+  }
+
+
+
+#font{
+    font-family: "Carlito", sans-serif;
+    font-weight: 400;
+    font-style: auto;
+
+    font-size: calc(1em+1%);
+}
+
+.marrone{
+    background-color: rgb(120, 107, 61);
+}
+
+.giallo{
+    background-color:rgb(255, 230, 140);
+}
+
+.bianco{
+    background-color: rgb(255, 252, 242);
+}
+
+
+.collegamento{
+    color: rgb(144, 129, 73);
+}
+
+.collegamento:link, .collegamento:visited{
+    text-decoration: none;
+}
+
+.collegamento:hover, .collegamento:active{
+    text-decoration: underline;
+}
+
+
+.titolo{
+    color: rgb(236, 233, 228);
+    font-size: 2.5vw;
+}
+
+.sottotitolo{
+    color: rgb(216, 212, 208);
+    font-size: 1.75vw;
+
+    margin-bottom: 5%;
+}
+
+.desc{
+    font-size: 2rem;
+}
+
+
+#header{
+    display: flex;
+    flex-direction: column;
+}
+
+#header-top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    height: 50%;
+    width: 100%;
+}
+
+#header-top-left{
+    height: 100%;
+    width: 50%;
+    text-align: center;
+
+    /* width: fit-content;  come fare?*/
+}
+
+
+#header-top-right{
+    height: 100%;
+    width: 50%;
+
+    display: flex;
+    /* flex-grow: ; potrei usarlo? */
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+#header-bottom{
+    height: 50%;
+    width: 100%;
+
+    text-align: center;
+}
+
+#testo-su-immagine{
+    height: 100%;
+    width: 100%;
+    background-image: url(immagini/Logo1.png);
+    background-size: contain;
+    background-position:center;
+    background-repeat: no-repeat;
+}
+
+
+#header-top-right .collegamento{
+    border: 1px transparent;
+    border-radius: 10px;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-right: 3%;
+
+    padding: 6px;
+
+    color: rgb(236, 233, 228);
+    text-decoration: none;
+}
+
+#header-top-right .collegamento:link, #header-top-right .collegamento:visited{
+    background-color: rgb(144, 129, 73);
+}
+#header-top-right .collegamento:hover, #header-top-right .collegamento:active{
+    background-color: rgb(120, 107, 61);
+}
+
+#bottone_ricerca{
+    border: 1px solid rgb(144, 129, 73);
+    border-radius: 10px;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-right: 3%;
+
+    padding: 6px;
+
+    background-color: rgb(144, 129, 73);
+}
+#bottone_ricerca:hover, #bottone_ricerca:active{
+    background-color: rgb(120, 107, 61);
+    cursor: pointer;
+}
+
+
+.immagine{
+    height: 15%;
+    width: 15%;
+}
+
+
+.linkbar{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+}
+
+.linkbar .immagine{
+    height: 25%;
+    width: 25%;
+}
+
+.icona_con_testo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    text-align: center;
+
+    margin: 1vw;
+}
+
+.icona_con_testo i, .sezione_sx i{
+    font-size: 6vw;/*cosa usare, em o vw?*/
+}
+
+.icona_con_testo .collegamento{
+    font-size: 2vw;
+}
+
+
+
+.vuoto{
+    background-color: rgb(255, 255, 255);
+    height: 50px;
+}
+
+
+.sezione_desktop{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sezione_sx{ /*immagini*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    
+    width: 50%;
+    height: 100%;
+
+}
+
+.sezione_dx{ /*titolo, testo e sottoliste*/
+    display: flex;
+    flex-direction: column;
+
+    width: 50%;
+    height: 100%;
+}
+
+.sezione_dx_top{/*titolo e testo*/
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 50%;
+}
+
+.sezione_dx_bottom{/*sottoliste*/
+    display: flex;
+    flex-wrap: wrap;
+
+    width: 100%;
+    height: 50%;
+
+    margin: 1% 0;
+}
+
+
+
+.lista{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    padding: 3%;
+}
+
+.sottolista{
+    list-style-type:circle;
+}
+
+
+/* 
+    appena specifico width si sposta a sinistra, troppo grande?
+
+.marrone .sezione_desktop .sezione_dx .sezione_dx_bottom .lista{
+    justify-content: center;
+    flex-grow: 0;
+}
+
+.marrone .sezione_desktop .sezione_dx .sezione_dx_bottom #ricardo{
+    justify-content: center;
+    
+} */
+
+
+.marrone .sezione_desktop .sezione_dx .sezione_dx_bottom .collegamento{
+    border: 1px transparent white;
+    border-radius: 10px;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-right: 3%;
+
+
+    padding: 6px;
+
+    color: rgb(236, 233, 228);
+    
+    text-decoration: none;
+    text-align: center;
+}
+
+.marrone .sezione_desktop .sezione_dx .sezione_dx_bottom .collegamento:link,
+.marrone .sezione_desktop .sezione_dx .sezione_dx_bottom .collegamento:visited{
+    border: 2px solid #422800;
+    box-shadow: #422800 4px 4px 0 0;
+
+    background-color: rgb(144, 129, 73);
+}
+
+.marrone .sezione_desktop .sezione_dx .sezione_dx_bottom .collegamento:hover{
+    background-color: rgb(94, 82, 40);
+}
+
+.marrone .sezione_desktop .sezione_dx .sezione_dx_bottom .collegamento:active{
+    box-shadow: #422800 2px 2px 0 0;
+    transform: translate(2px, 2px);
+}
+
+
+
+
+
+
+#flex_footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    text-align: center;
+
+    background-color: rgb(255, 252, 242);
+}
+
+
+.extra{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+
+    height: fit-content;
+    width: fit-content;
+}
+#extra-uno{
+    /* background-color: rgb(216, 192, 104); */
+    background-color: rgb(255, 219, 87);
+}
+#extra-due{
+    /* background-color: rgb(231, 201, 91); */
+    background-color: rgb(255, 219, 87);
+}
+
+.nascosto{
+    display: none;
+}
+
+
+.sezione_bottoni{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 2%;
+}
+
+.bottone_espansore{
+    background-color: rgb(255, 223, 107);
+    border: 2px solid #422800;
+    border-radius: 30px;
+    box-shadow: #422800 4px 4px 0 0;
+    color: #422800;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 0 18px;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    touch-action: manipulation;
+
+    margin: 0.5% 0; 
+}
+
+
+.bottone_espansore:hover{
+    background-color:rgb(255, 219, 87);
+}
+.bottone_espansore:active{
+    box-shadow: #422800 2px 2px 0 0;
+    transform: translate(2px, 2px);
+}
+
+
+
+#ricardo{
+    border: 0px transparent;
+    background-color: rgb(120, 107, 61);
+    cursor: pointer;
+
+    margin: 3% 0%;
+
+    color: rgb(120, 107, 61);
+}
+
+
