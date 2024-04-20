@@ -1,35 +1,3 @@
-// sezione barra di ricerca
-
-const ricerca=document.createElement('input');
-ricerca.type='text';
-
-const lente= document.querySelector(".fa-solid fa-magnifying-glass")
-
-function bottone_to_ricerca(event){
-    console.log("ricerca attiva");
-
-
-    bottone.appendChild(ricerca);
-    bottone.removeEventListener("click", bottone_to_ricerca);
-    ricerca.addEventListener("focusout", ricerca_to_bottone);
-}
-
-function ricerca_to_bottone(event){
-    console.log("ritorno al default");
-
-
-
-    ricerca.removeEventListener("focusout", ricerca_to_bottone);
-    bottone.addEventListener("click", bottone_to_ricerca);
-    ricerca.parentNode.removeChild(ricerca);
-}
-
-const bottone = document.querySelector("#bottone_ricerca");
-
-bottone.addEventListener('click', bottone_to_ricerca);
-
-
-
 // sezione logo variabile
 
 // const dice_url='https://media.tenor.com/mgLvfJ4Zk5cAAAAi/jp-jamesperrett.gif';
@@ -61,7 +29,7 @@ logo.addEventListener("mouseover", appearingGif);
 
 
 
-// sezione bottoni
+// sezione bottoni espandibili
 
 const bottone_uno=document.querySelector("#bottone-uno");
 const bottone_due=document.querySelector("#bottone-due");
@@ -72,11 +40,9 @@ bottone_due.addEventListener("click", onClick);
 
 // const bottoni=document.querySelectorAll(".bottone_espansore");
 
-// for(let x=0; x<bottoni.length; x++ ){
+// for(let x=0; x<bottoni.length; x++ ){ //come farlo funzionare?
 //     bottoni[x]=addEventListener("click", onClick);
 // } // //non conosce il dataset di un elemento dell'array
-
-
 
 function onClick(event){
 
@@ -100,33 +66,26 @@ function onClick(event){
 
 
 
-// ricardo
-//https://media.giphy.com/media/IfrfAy8zbHnPfUIWki/giphy.gif?cid=790b7611prqky8etsfbeb81ye3bz4ydznxnassu6ywog3w71&ep=v1_gifs_search&rid=giphy.gif&ct=g
+//ricardo section
 
 const ricardo_button=document.querySelector("#ricardo");
 ricardo_button.addEventListener("click", ricardo_function);
-// ricardo_button.addEventListener("click", ricardo_ricardo);
-
 
 const ricardo_img=document.createElement('img');
 ricardo_img.setAttribute('src', 'https://media.giphy.com/media/IfrfAy8zbHnPfUIWki/giphy.gif?cid=790b7611prqky8etsfbeb81ye3bz4ydznxnassu6ywog3w71&ep=v1_gifs_search&rid=giphy.gif&ct=g')
-// ricardo_img.src=url('https://media.giphy.com/media/IfrfAy8zbHnPfUIWki/giphy.gif?cid=790b7611prqky8etsfbeb81ye3bz4ydznxnassu6ywog3w71&ep=v1_gifs_search&rid=giphy.gif&ct=g
-// ');
+
 
 function ricardo_function(event){
     console.log("RICARDO");
 
     const ricardo=event.currentTarget;
 
-    console.log(ricardo.parentNode.childNodes); //33
-
-    ricardo.parentNode.appendChild(ricardo_img);
-    
-    console.log(ricardo.parentNode.childNodes); //34
-
+    ricardo.parentNode.appendChild(ricardo_img); 
 
     ricardo.removeEventListener("click", ricardo_function);
     ricardo.addEventListener("click", tooSexy);
+
+    
 }
 
 function tooSexy(event){
@@ -140,18 +99,61 @@ function tooSexy(event){
     ricardo.removeEventListener("click", tooSexy);
 }
 
-// function ricardo_ricardo(event){
-//     console.log("RICARDO RICARDO");
 
-//     const ricardo=event.currentTarget;
 
-//     if(console.log(ricardo.parentNode.childElementCount)===33){ //ritorna 17?
-//         ricardo.parentNode.appendChild(ricardo_img);
-//     }
-//     else{
-//         ricardo.parentNode.removeChild(ricardo_img);
-//         ricardo.innerHTML="";
-//         ricardo.removeEventListener("click", ricardo_ricardo);
-//     }
+// richieste API
+function ricerca(event){
+    event.preventDefault();
 
-// }
+    const tipo = document.querySelector("#tipone").value;
+    richiesta = endpoint + tipo + "/multi-classing";
+
+    fetch(richiesta).then(onResponse).then(onJson);
+}
+
+function onResponse(response){
+    console.log('Risposta ricevuta');
+
+    return response.json();
+}
+
+function onJson(json){
+
+    console.log(json);
+    const container = document.querySelector("#risultati-multiclassing");
+
+    let prerequisiti = json.prerequisites;
+
+    container.innerHTML="";
+
+    if(prerequisiti){
+        console.log(prerequisiti);
+
+        for(let prerequisito of prerequisiti){
+            const elemento = document.createElement('p');
+            elemento.textContent=prerequisito.ability_score.name + " : " + prerequisito.minimum_score;
+            container.appendChild(elemento);
+        }
+    }
+    else {
+        prerequisiti=json.prerequisite_options.from.options;
+        console.log(prerequisiti);
+
+        const elemento = document.createElement('p');
+        elemento.textContent="scegli "+ json.prerequisite_options.choose +" tra:";
+        container.appendChild(elemento);
+
+        for(let prerequisito of prerequisiti){
+            const elemento = document.createElement('p');
+            elemento.textContent=prerequisito.ability_score.name + " : " + prerequisito.minimum_score;
+            container.appendChild(elemento);
+        }
+    }
+
+}
+
+const form = document.querySelector("#form");
+
+form.addEventListener("submit", ricerca);
+
+const endpoint = "https://www.dnd5eapi.co/api/classes/";
