@@ -106,7 +106,7 @@ function ricerca(event){
     event.preventDefault();
 
     const tipo = document.querySelector("#tipone").value;
-    richiesta = endpoint + tipo + "/multi-classing";
+    richiesta = endpoint_dnd + tipo + "/multi-classing";
 
     fetch(richiesta).then(onResponse).then(onJson);
 }
@@ -156,4 +156,4 @@ const form = document.querySelector("#form");
 
 form.addEventListener("submit", ricerca);
 
-const endpoint = "https://www.dnd5eapi.co/api/classes/";
+const endpoint_dnd = "https://www.dnd5eapi.co/api/classes/";
