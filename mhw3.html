@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WIKICLONE2.0</title>
+    <title>WIKICLONE3.0</title>
 
     <link rel="stylesheet" href="mhw3.css">
 
@@ -824,37 +824,35 @@
                 </div>
             </div>
 
-            <div id="API-display">
+            <div class="marrone">
+                <div id="sezione_api">
+                    <h1 class="titolo">
+                        MULTICLASSI: requisiti minimi
+                    </h1>
 
-            
-                    <div id="sezione_api">
-                        <h1 class="titolo">
-                            MULTICLASSING
-                        </h1>
 
-                            <form action="" id="form">
-                            <select name="tipo" id="tipone">
-                                <option value="none">---scegli---</option>
-                                <option value="barbarian">Barbaro</option>
-                                <option value="bard">Bardo</option>
-                                <option value="cleric">Chierico</option>
-                                <option value="druid">Druido</option>
-                                <option value="fighter">Guerriero</option>
-                                <option value="monk">Monaco</option>
-                                <option value="paladin">Paladino</option>
-                                <option value="ranger">Ranger</option>
-                                <option value="rogue">Ladro</option>
-                                <option value="sorcerer">Stregone</option>
-                                <option value="warlock">Warlock</option>
-                                <option value="wizard">Mago</option>
-                            </select>
-                            <input type="submit" data-name="bottone" value="cerca" >
-                        </form>
-                        <div id="risultati-multiclassing">
+                    <form action="" id="form">
+                        <select name="tipo" id="tipone">
+                            <option value="none">---scegli---</option>
+                            <option value="barbarian">Barbaro</option>
+                            <option value="bard">Bardo</option>
+                            <option value="cleric">Chierico</option>
+                            <option value="druid">Druido</option>
+                            <option value="fighter">Guerriero</option>
+                            <option value="monk">Monaco</option>
+                            <option value="paladin">Paladino</option>
+                            <option value="ranger">Ranger</option>
+                            <option value="rogue">Ladro</option>
+                            <option value="sorcerer">Stregone</option>
+                            <option value="warlock">Warlock</option>
+                            <option value="wizard">Mago</option>
+                        </select>
+                        <input type="submit" data-name="bottone" value="cerca" >
+                    </form>
+                    <div id="risultati-multiclassing">
 
-                        </div>
+                    </div>
                 </div>
-
             </div>
     
             <div class="vuoto">
@@ -1001,7 +999,7 @@
                                     Tutti gli altri
                                 </h2>
                                 <li>
-                                    <a class="collegamento" href="http://dnd5e.wikidot.com/#toc70">(anche qua sono troppi)</a>
+                                    <a class="collegamento" href="http://dnd5e.wikidot.com/#toc70">(sono troppi)</a>
                                 </li>    
                             </nav>
                         </div>
@@ -1264,6 +1262,32 @@
         <div class="vuoto">
         </div>
 
+        <div class="giallo">
+            <div class="sezione_desktop">
+                <div class="sezione_sx">
+                    <h1>Album musicali</h1>
+                    <p>
+                        ricerca qui le canzoni che più si adattano alla tua campagna
+                    </p>
+
+                </div>
+                <div class="sezione_dx">
+                    <div class="sezione_dx_top">
+                        <form id="form_spotify">
+                          <input type='text' id='input_spotify'>
+                          <input type='submit'  value='Cerca'>
+                        </form>
+                    
+
+                    </div>
+                    <div class="sezione_dx_bottom">
+                        <div id="contenuto_spotify">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
 
 
 

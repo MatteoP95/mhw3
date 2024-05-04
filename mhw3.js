@@ -129,9 +129,33 @@ function onJson(json){
     if(prerequisiti){
         console.log(prerequisiti);
 
+        const elemento = document.createElement('div');
+        elemento.classList.add('testo');
+
+        elemento.textContent="serve: "
+        container.appendChild(elemento);
+
         for(let prerequisito of prerequisiti){
-            const elemento = document.createElement('p');
-            elemento.textContent=prerequisito.ability_score.name + " : " + prerequisito.minimum_score;
+            const elemento = document.createElement('div');
+            elemento.classList.add('testo');
+
+            if(prerequisito.ability_score.name==="DEX"){
+                prerequisito.ability_score.name="Destrezza"
+            }
+            else if(prerequisito.ability_score.name==="CHA"){
+                prerequisito.ability_score.name="Carisma"
+            }
+            else if(prerequisito.ability_score.name==="WIS"){
+                prerequisito.ability_score.name="Saggezza"
+            }
+            else if(prerequisito.ability_score.name==="STR"){
+                prerequisito.ability_score.name="Forza"
+            }
+            else if(prerequisito.ability_score.name==="INT"){
+                prerequisito.ability_score.name="Intelligenza"
+            }
+
+            elemento.textContent=prerequisito.ability_score.name + " >= " + prerequisito.minimum_score;
             container.appendChild(elemento);
         }
     }
@@ -139,13 +163,34 @@ function onJson(json){
         prerequisiti=json.prerequisite_options.from.options;
         console.log(prerequisiti);
 
-        const elemento = document.createElement('p');
+        const elemento = document.createElement('div');
+        elemento.classList.add('testo');
+
         elemento.textContent="scegli "+ json.prerequisite_options.choose +" tra:";
         container.appendChild(elemento);
 
         for(let prerequisito of prerequisiti){
-            const elemento = document.createElement('p');
-            elemento.textContent=prerequisito.ability_score.name + " : " + prerequisito.minimum_score;
+            const elemento = document.createElement('div');
+            elemento.classList.add('testo');
+            
+
+            if(prerequisito.ability_score.name==="DEX"){
+                prerequisito.ability_score.name="Destrezza"
+            }
+            else if(prerequisito.ability_score.name==="CHA"){
+                prerequisito.ability_score.name="Carisma"
+            }
+            else if(prerequisito.ability_score.name==="WIS"){
+                prerequisito.ability_score.name="Saggezza"
+            }
+            else if(prerequisito.ability_score.name==="STR"){
+                prerequisito.ability_score.name="Forza"
+            }
+            else if(prerequisito.ability_score.name==="INT"){
+                prerequisito.ability_score.name="Intelligenza"
+            }
+
+            elemento.textContent=prerequisito.ability_score.name + " >= " + prerequisito.minimum_score;
             container.appendChild(elemento);
         }
     }
@@ -157,3 +202,93 @@ const form = document.querySelector("#form");
 form.addEventListener("submit", ricerca);
 
 const endpoint_dnd = "https://www.dnd5eapi.co/api/classes/";
+
+//-------------------------------------------------------------------------//
+//oauth2.0
+
+const client_id_spotify = '';
+const client_secret_spotify = '';
+const client_endpoint_spotify =  'https://accounts.spotify.com/api/token' ;
+let token;
+
+const canzoni_endpoint = 'https://api.spotify.com/v1/search?type=album&q=';
+
+
+fetch(client_endpoint_spotify,{
+   method: "post",
+   body: 'grant_type=client_credentials',
+   headers:{
+    'Authorization': 'Basic ' + btoa(client_id_spotify + ':' + client_secret_spotify),
+    'Content-Type': 'application/x-www-form-urlencoded'
+   }
+  }
+).then(onTokenResponse).then(onTokenJson);
+
+function onTokenResponse(response){
+    return response.json();
+}
+function onTokenJson(json){
+
+    token = json.access_token;
+    console.log(token);
+}
+
+
+
+function onJsonSpotify(json){
+
+    console.log("json ricevuto:");
+    console.log(json);
+
+    const library = document.querySelector('#contenuto_spotify');
+    library.innerHTML = '';
+
+    const risultati= json.albums.items;
+    let num_risultati = risultati.length;
+
+    for(let i=0; i<num_risultati; i++){
+        const album_data= risultati[i];
+        const immagine= album_data.images[0].url;
+        const titolo = album_data.name;
+
+
+        const album = document.createElement('div');
+        album.classList.add('album');
+
+        const img = document.createElement('img');
+        img.src=immagine;
+
+        const caption=document.createElement('span');
+        caption.textContent=titolo;
+
+        album.appendChild(img);
+        album.appendChild(caption);
+        library.appendChild(album);
+    }
+
+}
+
+function onResponseSpotify(response){
+    console.log("spotify risponde:");
+    console.log(response);
+    return response.json();
+}
+
+function ricerca_spotify(event){
+    event.preventDefault();
+
+    const input = document.querySelector("#input_spotify");
+    const value = encodeURIComponent(input.value);
+    
+    fetch(canzoni_endpoint + value,{
+            headers:{
+                'Authorization': 'Bearer '+ token
+            }
+        }
+    ).then(onResponseSpotify).then(onJsonSpotify);
+}
+
+
+
+const form_spotify = document.querySelector('#form_spotify');
+form_spotify.addEventListener('submit', ricerca_spotify);

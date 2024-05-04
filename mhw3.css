@@ -131,7 +131,9 @@ rgba(20, 20, 20, 0.95)
 .bianco{
     background-color: rgb(255, 252, 242);
 }
-
+.testo{
+    color: rgb(216, 212, 208);
+}
 
 .collegamento{
     color: rgb(144, 129, 73);
@@ -253,7 +255,7 @@ rgba(20, 20, 20, 0.95)
     background-color: rgb(120, 107, 61);
     cursor: pointer;
 } */
-/* viene commentato perché non in uso in questa versione */
+/* non in uso in questa versione */
 
 
 
@@ -311,9 +313,9 @@ rgba(20, 20, 20, 0.95)
 
 .sezione_sx{ /*immagini*/
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     
     width: 50%;
     height: 100%;
@@ -509,3 +511,23 @@ rgba(20, 20, 20, 0.95)
     padding: 1%;
 }
 
+#contenuto_spotify {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  #contenuto_spotify .album {
+    margin: 10px;
+    border: 1px solid slategray;
+    border-radius: 3px;
+    background-color: rgb(255, 252, 242);
+
+    padding: 5px;
+    max-width: 150px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #contenuto_spotify img {
+    max-width: 100%;
+  }
