@@ -1265,15 +1265,34 @@
         <div class="giallo">
             <div class="sezione_desktop">
                 <div class="sezione_sx">
-                    <h1>Album musicali</h1>
+                    <h1>Tunes</h1>
                     <p>
-                        ricerca qui le canzoni che più si adattano alla tua campagna
+                        Ricerca qui le canzoni che più si adattano alla tua campagna
+                    </p>
+                    <p>
+                        supporta creatori come <br>
+                        Arcane Anthems!!
                     </p>
 
                 </div>
                 <div class="sezione_dx">
                     <div class="sezione_dx_top">
+
                         <form id="form_spotify">
+                            <select name="tipo" id="tipo_spotify">
+                                <option value="">
+                                    ---scegli---
+                                </option>
+                                <option value="artist">
+                                    Artista
+                                </option>
+                                <option value="album">
+                                    Album
+                                </option>
+                                <option value="track">
+                                    Canzone
+                                </option>
+                            </select>
                           <input type='text' id='input_spotify'>
                           <input type='submit'  value='Cerca'>
                         </form>
