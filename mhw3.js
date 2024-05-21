@@ -175,19 +175,22 @@ function onJson(json){
             
 
             if(prerequisito.ability_score.name==="DEX"){
-                prerequisito.ability_score.name="Destrezza"
+                prerequisito.ability_score.name="Destrezza";
             }
             else if(prerequisito.ability_score.name==="CHA"){
-                prerequisito.ability_score.name="Carisma"
+                prerequisito.ability_score.name="Carisma";
             }
             else if(prerequisito.ability_score.name==="WIS"){
-                prerequisito.ability_score.name="Saggezza"
+                prerequisito.ability_score.name="Saggezza";
             }
             else if(prerequisito.ability_score.name==="STR"){
-                prerequisito.ability_score.name="Forza"
+                prerequisito.ability_score.name="Forza";
             }
             else if(prerequisito.ability_score.name==="INT"){
-                prerequisito.ability_score.name="Intelligenza"
+                prerequisito.ability_score.name="Intelligenza";
+            }
+            else if(prerequisito.ability_score.name==="CON"){
+                prerequisito.ability_score.name="Costituzione";
             }
 
             elemento.textContent=prerequisito.ability_score.name + " >= " + prerequisito.minimum_score;
@@ -206,8 +209,8 @@ const endpoint_dnd = "https://www.dnd5eapi.co/api/classes/";
 //-------------------------------------------------------------------------//
 //oauth2.0
 
-const client_id_spotify = '';
-const client_secret_spotify = '';
+const client_id_spotify = 'your_client_id';
+const client_secret_spotify = 'your_client_secret';
 const client_endpoint_spotify =  'https://accounts.spotify.com/api/token' ;
 let token;
 
